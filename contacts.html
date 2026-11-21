@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | VELLORA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #fffaf7;
+    color: #382b2b;
+}
+
+.announcement {
+    background: #a85d69;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: white;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #a85d69;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #382b2b;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #a85d69;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(rgba(55,35,38,0.55), rgba(55,35,38,0.55)),
+    url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85');
+    background-size: cover;
+    background-position: center;
+    padding: 110px 20px;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+    padding: 80px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #a85d69;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: #806f6f;
+    font-size: 14px;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 45px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* CONTACT INFORMATION */
+.contact-info {
+    background: #f3e5e1;
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    margin: 25px 0;
+}
+
+.info-item h4 {
+    color: #a85d69;
+    margin-bottom: 7px;
+    font-size: 15px;
+}
+
+.info-item p {
+    font-size: 14px;
+    color: #6d5b5b;
+    line-height: 1.7;
+}
+
+/* CONTACT FORM */
+.contact-form {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+}
+
+.contact-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e5d6d2;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    background: #fffdfc;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #a85d69;
+    box-shadow: 0 0 0 3px rgba(168,93,105,0.1);
+}
+
+.form-group textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #a85d69;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: #81434e;
+    transform: translateY(-2px);
+}
+
+#form-message {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* FOOTER */
+footer {
+    background: #382b2b;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+footer h2 {
+    font-family: 'Playfair Display', serif;
+    color: #e9b9bf;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 12px;
+    color: #d8c5c5;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 25px;
+        text-align: center;
+        gap: 20px;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+    FREE SHIPPING ON ORDERS ABOVE ₹1999
+</div>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">VELLORA</div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contacts.html" class="active">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Contact Us</h1>
+    <p>We would love to hear from you. Let's connect!</p>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+
+    <div class="section-heading">
+        <h2>Get In Touch</h2>
+        <p>Have a question about your order or our collections? Send us a message.</p>
+    </div>
+
+    <div class="contact-container">
+
+        <!-- CONTACT DETAILS -->
+        <div class="contact-info">
+            <h3>Let's Talk</h3>
+
+            <div class="info-item">
+                <h4>📍 Our Location</h4>
+                <p>VELLORA Fashion Store<br>Thrissur, Kerala, India</p>
+            </div>
+
+            <div class="info-item">
+                <h4>📧 Email Address</h4>
+                <p>support@vellora.com</p>
+            </div>
+
+            <div class="info-item">
+                <h4>📞 Phone Number</h4>
+                <p>+91 98765 43210</p>
+            </div>
+
+            <div class="info-item">
+                <h4>🕒 Working Hours</h4>
+                <p>Monday – Saturday<br>9:00 AM – 6:00 PM</p>
+            </div>
+        </div>
+
+        <!-- CONTACT FORM -->
+        <div class="contact-form">
+            <h3>Send Us A Message</h3>
+
+            <form id="contactForm">
+
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name"
+                    placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email"
+                    placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject"
+                    placeholder="Enter subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message"
+                    placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    SEND MESSAGE →
+                </button>
+
+                <p id="form-message" aria-live="polite"></p>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>VELLORA</h2>
+    <p>Elegance in every thread. Style in every moment.</p>
+    <p style="margin-top:15px;">© 2026 VELLORA. All Rights Reserved.</p>
+</footer>
+
+<script>
+// MOBILE MENU
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function() {
+    navLinks.classList.toggle("show");
+});
+
+// CLOSE MENU AFTER CLICKING A LINK
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+    });
+});
+
+// CONTACT FORM VALIDATION
+const contactForm = document.getElementById("contactForm");
+const formMessage = document.getElementById("form-message");
+
+contactForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !subject || !message) {
+        formMessage.style.color = "red";
+        formMessage.textContent = "Please fill in all the fields.";
+        return;
+    }
+
+    formMessage.style.color = "green";
+    formMessage.textContent =
+        "Thank you, " + name + "! Your message has been received.";
+
+    contactForm.reset();
+});
+</script>
+
+</body>
+</html>

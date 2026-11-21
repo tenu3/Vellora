@@ -1,0 +1,1300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELLORA | Discover Your Style</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --dark: #251d20;
+    --rose: #a65d68;
+    --light-rose: #f7edef;
+    --cream: #faf7f3;
+    --muted: #81777a;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--dark);
+    background: var(--white);
+}
+
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+
+a { text-decoration: none; color: inherit; }
+
+.announcement {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+}
+
+header {
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid #eee8e6;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.logo span { color: var(--rose); }
+
+nav {
+    display: flex;
+    gap: 32px;
+}
+
+nav a {
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+nav a:hover { color: var(--rose); }
+
+.header-actions {
+    display: flex;
+    gap: 19px;
+    align-items: center;
+}
+
+.icon-btn {
+    border: none;
+    background: transparent;
+    font-size: 21px;
+    position: relative;
+    color: var(--dark);
+}
+
+.count {
+    position: absolute;
+    top: -8px;
+    right: -9px;
+    background: var(--rose);
+    color: white;
+    font-size: 10px;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    display: grid;
+    place-items: center;
+}
+
+.menu-toggle { display: none; }
+
+.hero {
+    min-height: 590px;
+    display: flex;
+    align-items: center;
+    padding: 70px 9%;
+    background:
+    linear-gradient(90deg,rgba(32,20,23,.65),rgba(32,20,23,.05)),
+    url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=85') center/cover;
+    color: white;
+}
+
+.hero-content { max-width: 540px; }
+
+.hero small {
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(45px,6vw,76px);
+    line-height: 1.12;
+    margin: 22px 0;
+}
+
+.hero p {
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 430px;
+    color: #f4eeee;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: var(--rose);
+    color: white;
+    border: none;
+    padding: 16px 30px;
+    margin-top: 28px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    transition: .3s;
+}
+
+.primary-btn:hover {
+    background: #82434d;
+    transform: translateY(-3px);
+}
+
+.section {
+    padding: 85px 7%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 43px;
+}
+
+.section-heading small {
+    color: var(--rose);
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 39px;
+    margin: 12px 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 20px;
+}
+
+.category-card {
+    text-align: center;
+    cursor: pointer;
+}
+
+.category-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.category-card:hover img { transform: scale(1.04); }
+
+.category-image {
+    overflow: hidden;
+}
+
+.category-card h3 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 15px;
+    font-size: 19px;
+}
+
+.shop-section { background: var(--cream); }
+
+.shop-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: white;
+    border: 1px solid #e9dfe0;
+    padding: 10px 18px;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--dark);
+    color: white;
+    border-color: var(--dark);
+}
+
+.shop-tools {
+    display: flex;
+    gap: 10px;
+}
+
+.shop-tools input, .shop-tools select {
+    padding: 11px;
+    border: 1px solid #e6dcdc;
+    background: white;
+    outline: none;
+    font-size: 12px;
+    min-width: 140px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 28px 20px;
+}
+
+.product-card {
+    background: white;
+    position: relative;
+    overflow: hidden;
+    animation: appear .5s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.product-image {
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+    background: #eee;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.07);
+}
+
+.product-tag {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    background: var(--rose);
+    color: white;
+    padding: 7px 10px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.wish-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 19px;
+}
+
+.wish-btn.active { color: #d44760; }
+
+.quick-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border: none;
+    background: rgba(37,29,32,.9);
+    color: white;
+    padding: 13px;
+    transform: translateY(100%);
+    transition: .3s;
+    font-size: 12px;
+}
+
+.product-card:hover .quick-btn {
+    transform: translateY(0);
+}
+
+.product-info { padding: 17px 14px; }
+
+.product-category {
+    color: var(--rose);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.product-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    margin: 7px 0;
+}
+
+.price {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.old-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.add-btn {
+    width: 100%;
+    margin-top: 13px;
+    padding: 11px;
+    background: white;
+    border: 1px solid var(--dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.add-btn:hover {
+    background: var(--dark);
+    color: white;
+}
+
+.no-results {
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 50px;
+    color: var(--muted);
+}
+
+.promo {
+    padding: 75px 8%;
+    background:
+    linear-gradient(90deg,rgba(35,25,28,.76),rgba(35,25,28,.18)),
+    url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=85') center/cover;
+    color: white;
+}
+
+.promo h2 {
+    font: 45px 'Playfair Display',serif;
+    max-width: 500px;
+}
+
+.promo p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 25px;
+    text-align: center;
+}
+
+.feature { padding: 20px; }
+
+.feature .symbol {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    font-family: 'Playfair Display',serif;
+    margin-bottom: 9px;
+}
+
+.feature p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.newsletter {
+    background: var(--light-rose);
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.newsletter h2 {
+    font: 36px 'Playfair Display',serif;
+}
+
+.newsletter p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 12px 0 22px;
+}
+
+.newsletter form {
+    display: flex;
+    max-width: 450px;
+    margin: auto;
+}
+
+.newsletter input {
+    flex: 1;
+    min-width: 0;
+    padding: 15px;
+    border: none;
+    outline: none;
+}
+
+.newsletter button {
+    background: var(--dark);
+    color: white;
+    border: none;
+    padding: 0 22px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 55px 7% 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 35px;
+}
+
+footer .logo { margin-bottom: 15px; }
+
+footer p {
+    color: #c7babe;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+footer h3 {
+    font-family: 'Playfair Display',serif;
+    margin-bottom: 18px;
+}
+
+footer a {
+    display: block;
+    color: #c7babe;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+footer a:hover { color: white; }
+
+.copyright {
+    border-top: 1px solid #51464a;
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+/* CART DRAWER */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 40;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-panel {
+    position: fixed;
+    right: -430px;
+    top: 0;
+    width: min(420px,100%);
+    height: 100vh;
+    background: white;
+    z-index: 50;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: .35s;
+}
+
+.cart-panel.show { right: 0; }
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.cart-header h2 {
+    font: 25px 'Playfair Display',serif;
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    font-size: 25px;
+}
+
+.cart-items {
+    overflow-y: auto;
+    flex: 1;
+    padding-top: 15px;
+}
+
+.cart-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.cart-item img {
+    width: 75px;
+    height: 90px;
+    object-fit: cover;
+}
+
+.cart-item-info { flex: 1; }
+
+.cart-item-info h4 {
+    font: 16px 'Playfair Display',serif;
+}
+
+.cart-item-info p {
+    color: var(--rose);
+    font-size: 13px;
+    margin: 6px 0;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.quantity button {
+    width: 23px;
+    height: 23px;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #aa4444;
+    font-size: 12px;
+}
+
+.cart-bottom {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: var(--dark);
+    color: white;
+    border: none;
+    padding: 16px;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+.empty-cart {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 50px;
+}
+
+/* QUICK VIEW */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.65);
+    z-index: 60;
+    display: none;
+    place-items: center;
+    padding: 20px;
+}
+
+.modal.show { display: grid; }
+
+.modal-content {
+    background: white;
+    max-width: 750px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.modal-details {
+    padding: 40px 30px;
+    align-self: center;
+}
+
+.modal-details h2 {
+    font: 30px 'Playfair Display',serif;
+    margin: 12px 0;
+}
+
+.modal-details p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background: white;
+    border: none;
+    font-size: 25px;
+    z-index: 2;
+}
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%,100px);
+    background: var(--dark);
+    color: white;
+    padding: 14px 25px;
+    font-size: 13px;
+    z-index: 100;
+    transition: .3s;
+}
+
+.toast.show { transform: translate(-50%,0); }
+
+@media(max-width:1000px) {
+    .product-grid { grid-template-columns: repeat(3,1fr); }
+    .categories { grid-template-columns: repeat(3,1fr); }
+    nav { gap: 15px; }
+}
+
+@media(max-width:700px) {
+    header { padding: 0 5%; height: 70px; }
+    .logo { font-size: 26px; }
+    .menu-toggle { display: block; }
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 25px;
+        box-shadow: 0 10px 15px #00000010;
+    }
+    nav.show { display: flex; }
+    .hero { min-height: 500px; padding: 50px 7%; }
+    .section { padding: 60px 5%; }
+    .product-grid { grid-template-columns: repeat(2,1fr); gap: 18px 12px; }
+    .product-image { height: 245px; }
+    .categories { grid-template-columns: repeat(2,1fr); }
+    .category-card img { height: 190px; }
+    .features { grid-template-columns: repeat(2,1fr); }
+    .footer-grid { grid-template-columns: repeat(2,1fr); }
+    .shop-tools { width: 100%; }
+    .shop-tools input { flex: 1; min-width: 0; }
+    .shop-tools select { min-width: 125px; }
+    .modal-content { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; }
+    .modal-content img { height: 260px; }
+    .modal-details { padding: 20px; }
+}
+
+@media(max-width:400px) {
+    .header-actions { gap: 12px; }
+    .product-image { height: 205px; }
+    .product-info h3 { font-size: 15px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+    ✦ FREE SHIPPING ON ORDERS ABOVE ₹1,999 | NEW COLLECTION OUT NOW ✦
+</div>
+
+<header>
+    <a href="index.html" class="logo">VEL<span>L</span>ORA.</a>
+
+    <nav id="navigation">
+        <a href="index.html">HOME</a>
+        <a href="categories.html">CATEGORIES</a>
+        <a href="shop.html">SHOP</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contacts.html">Contact</a>
+        <a href="login.html">Login / Register</a>
+    </nav>
+
+    <div class="header-actions">
+        <button class="icon-btn" onclick="showWishlist()" title="Wishlist">♡
+            <span class="count" id="wishCount">0</span>
+        </button>
+        <button class="icon-btn" onclick="openCart()" title="Shopping cart">🛍
+            <span class="count" id="cartCount">0</span>
+        </button>
+        <button class="icon-btn menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <small>THE ART OF EVERYDAY ELEGANCE</small>
+        <h1>Wear Your<br>Confidence.</h1>
+        <p>
+            Discover timeless styles, beautiful collections and
+            fashion that expresses who you are. Your next favourite
+            outfit is waiting for you.
+        </p>
+        <a href="shop.html" class="primary-btn">EXPLORE COLLECTION →</a>
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+    <div class="section-heading">
+        <small>EXPLORE OUR WORLD</small>
+        <h2>Shop By Category</h2>
+        <p>Find the perfect style for every occasion.</p>
+    </div>
+
+    <div class="categories">
+        <div class="category-card" onclick="filterCategory('Dresses')">
+            <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=500" alt="Dresses">
+            </div>
+            <h3>Dresses</h3>
+        </div>
+
+        <div class="category-card" onclick="filterCategory('Tops')">
+            <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=500" alt="Tops">
+            </div>
+            <h3>Tops</h3>
+        </div>
+
+        <div class="category-card" onclick="filterCategory('Sarees')">
+            <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500" alt="Sarees">
+            </div>
+            <h3>Sarees</h3>
+        </div>
+
+        <div class="category-card" onclick="filterCategory('Jeans')">
+            <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500" alt="Jeans">
+            </div>
+            <h3>Jeans</h3>
+        </div>
+
+        <div class="category-card" onclick="filterCategory('Accessories')">
+            <div class="category-image">
+                <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=500" alt="Accessories">
+            </div>
+            <h3>Accessories</h3>
+        </div>
+    </div>
+</section>
+
+<!-- SHOP -->
+
+<section class="section shop-section" id="shop">
+    <div class="section-heading">
+        <small>CURATED FOR YOU</small>
+        <h2>Our Latest Collection</h2>
+        <p>Fashion made to celebrate your individuality.</p>
+    </div>
+
+    <div class="shop-top">
+        <div class="filters" id="filters">
+            <button class="filter-btn active" onclick="filterCategory('All',this)">All</button>
+            <button class="filter-btn" onclick="filterCategory('Dresses',this)">Dresses</button>
+            <button class="filter-btn" onclick="filterCategory('Tops',this)">Tops</button>
+            <button class="filter-btn" onclick="filterCategory('Sarees',this)">Sarees</button>
+            <button class="filter-btn" onclick="filterCategory('Jeans',this)">Jeans</button>
+            <button class="filter-btn" onclick="filterCategory('Accessories',this)">Accessories</button>
+        </div>
+
+        <div class="shop-tools">
+            <input type="search" id="search" placeholder="Search products..." oninput="renderProducts()">
+            <select id="sort" onchange="renderProducts()">
+                <option value="default">Sort by</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- PROMOTION -->
+
+<section class="promo">
+    <h2>Elegance Is Always In Style.</h2>
+    <p>Refresh your wardrobe with our exclusive seasonal collection.</p>
+    <a href="shop.html" class="primary-btn">SHOP THE COLLECTION →</a>
+</section>
+
+<!-- FEATURES -->
+
+<section class="section" id="about">
+    <div class="section-heading">
+        <small>THE VELLORA PROMISE</small>
+        <h2>A Better Shopping Experience</h2>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <div class="symbol">✦</div>
+            <h3>Premium Quality</h3>
+            <p>Carefully selected styles and quality materials.</p>
+        </div>
+        <div class="feature">
+            <div class="symbol">♡</div>
+            <h3>Made For You</h3>
+            <p>Fashion that celebrates your personal style.</p>
+        </div>
+        <div class="feature">
+            <div class="symbol">↗</div>
+            <h3>Easy Shopping</h3>
+            <p>A simple and convenient shopping experience.</p>
+        </div>
+        <div class="feature">
+            <div class="symbol">♧</div>
+            <h3>Secure Experience</h3>
+            <p>Designed with customer convenience in mind.</p>
+        </div>
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+    <h2>Join The Vellora Club</h2>
+    <p>Subscribe to receive updates, new arrivals and exclusive offers.</p>
+    <form id="newsletterForm">
+        <input type="email" id="email" placeholder="Enter your email address" required>
+        <button type="submit">SUBSCRIBE</button>
+    </form>
+</section>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+    <div class="footer-grid">
+        <div>
+            <div class="logo">VEL<span>L</span>ORA.</div>
+            <p>Discover your style. Celebrate your individuality.
+            Welcome to Vellora, where fashion meets elegance.</p>
+        </div>
+
+        <div>
+            <h3>Explore</h3>
+            <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About Us</a>
+        </div>
+
+        <div>
+            <h3>Customer Care</h3>
+            <a href="contacts.html">Contact Us</a>
+            <a href="contacts.html">Shipping Policy</a>
+            <a href="contacts.html">Returns</a>
+            <a href="contacts.html">Privacy Policy</a>
+        </div>
+
+        <div>
+            <h3>Get In Touch</h3>
+            <p>Email: hello@vellora.com</p>
+            <p>Instagram: @vellora</p>
+            <p>Follow us for new arrivals.</p>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <p>© 2026 VELLORA. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- CART -->
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<aside class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+        <h2>Your Shopping Bag</h2>
+        <button class="close-btn" onclick="closeCart()">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-bottom">
+        <div class="total">
+            <span>Total</span>
+            <span id="cartTotal">₹0</span>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">PROCEED TO CHECKOUT →</button>
+    </div>
+</aside>
+
+<!-- QUICK VIEW -->
+
+<div class="modal" id="quickModal" onclick="closeQuick(event)">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeQuick()">×</button>
+        <img id="quickImage" src="" alt="Product preview">
+        <div class="modal-details">
+            <small id="quickCategory" class="product-category"></small>
+            <h2 id="quickName"></h2>
+            <h3 id="quickPrice"></h3>
+            <p>Discover effortless style with this carefully selected Vellora collection piece. A beautiful addition to your wardrobe.</p>
+            <button class="primary-btn" id="quickAdd">ADD TO BAG</button>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// PRODUCT DATABASE
+
+const products = [
+    {id:1,name:"Floral Summer Dress",category:"Dresses",price:1899,old:2499,tag:"BESTSELLER",image:"https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=700"},
+    {id:2,name:"Elegant Evening Dress",category:"Dresses",price:2499,old:3199,tag:"NEW",image:"https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=700"},
+    {id:3,name:"Classic White Top",category:"Tops",price:899,old:1199,tag:"SALE",image:"https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=700"},
+    {id:4,name:"Premium Denim Jeans",category:"Jeans",price:1599,old:1999,tag:"TRENDING",image:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=700"},
+    {id:5,name:"Traditional Silk Saree",category:"Sarees",price:3499,old:4299,tag:"EXCLUSIVE",image:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=700"},
+    {id:6,name:"Casual Chic Top",category:"Tops",price:1099,old:1399,tag:"NEW",image:"https://images.unsplash.com/photo-1564257577-6a7d4c7b0d7d?w=700"},
+    {id:7,name:"Minimal Gold Necklace",category:"Accessories",price:799,old:999,tag:"POPULAR",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=700"},
+    {id:8,name:"Elegant Black Dress",category:"Dresses",price:2199,old:2799,tag:"BESTSELLER",image:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=700"},
+    {id:9,name:"Modern Denim Style",category:"Jeans",price:1799,old:2299,tag:"TRENDING",image:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=700"},
+    {id:10,name:"Designer Party Saree",category:"Sarees",price:3999,old:4999,tag:"EXCLUSIVE",image:"https://images.unsplash.com/photo-1583391733956-6c78276477e3?w=700"},
+    {id:11,name:"Rose Gold Earrings",category:"Accessories",price:599,old:799,tag:"SALE",image:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=700"},
+    {id:12,name:"Casual Summer Outfit",category:"Dresses",price:1699,old:2199,tag:"NEW",image:"https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=700"}
+];
+
+// APP STATE
+
+let selectedCategory = "All";
+let cart = JSON.parse(localStorage.getItem("velloraCart") || "[]");
+let wishlist = JSON.parse(localStorage.getItem("velloraWishlist") || "[]");
+
+const money = amount => "₹" + amount.toLocaleString("en-IN");
+
+function saveData() {
+    localStorage.setItem("velloraCart",JSON.stringify(cart));
+    localStorage.setItem("velloraWishlist",JSON.stringify(wishlist));
+}
+
+// DISPLAY PRODUCTS
+
+function renderProducts() {
+    const grid = document.getElementById("productGrid");
+    const search = document.getElementById("search").value.toLowerCase();
+    const sort = document.getElementById("sort").value;
+
+    let filtered = products.filter(p =>
+        (selectedCategory === "All" || p.category === selectedCategory) &&
+        (p.name.toLowerCase().includes(search) ||
+         p.category.toLowerCase().includes(search))
+    );
+
+    if(sort === "low") filtered.sort((a,b)=>a.price-b.price);
+    if(sort === "high") filtered.sort((a,b)=>b.price-a.price);
+    if(sort === "name") filtered.sort((a,b)=>a.name.localeCompare(b.name));
+
+    if(!filtered.length) {
+        grid.innerHTML = '<div class="no-results">No products found. Try another search.</div>';
+        return;
+    }
+
+    grid.innerHTML = filtered.map(p => `
+        <div class="product-card">
+            <div class="product-image">
+                <img src="${p.image}" alt="${p.name}" loading="lazy">
+                <span class="product-tag">${p.tag}</span>
+                <button class="wish-btn ${wishlist.includes(p.id) ? "active" : ""}"
+                    onclick="toggleWish(${p.id})">
+                    ${wishlist.includes(p.id) ? "♥" : "♡"}
+                </button>
+                <button class="quick-btn" onclick="quickView(${p.id})">QUICK VIEW</button>
+            </div>
+            <div class="product-info">
+                <span class="product-category">${p.category}</span>
+                <h3>${p.name}</h3>
+                <span class="price">${money(p.price)}</span>
+                <span class="old-price">${money(p.old)}</span>
+                <button class="add-btn" onclick="addToCart(${p.id})">ADD TO BAG +</button>
+            </div>
+        </div>
+    `).join("");
+
+    updateCounts();
+}
+
+// CATEGORY FILTER
+
+function filterCategory(category,button) {
+    selectedCategory = category;
+
+    document.querySelectorAll(".filter-btn").forEach(btn =>
+        btn.classList.remove("active")
+    );
+
+    const matching = [...document.querySelectorAll(".filter-btn")]
+        .find(btn => btn.textContent.trim() === category);
+
+    if(matching) matching.classList.add("active");
+
+    document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+    renderProducts();
+}
+
+// WISHLIST
+
+function toggleWish(id) {
+    if(wishlist.includes(id)) {
+        wishlist = wishlist.filter(item=>item!==id);
+        showToast("Removed from wishlist");
+    } else {
+        wishlist.push(id);
+        showToast("Added to wishlist ♥");
+    }
+
+    saveData();
+    renderProducts();
+}
+
+function showWishlist() {
+    const items = products.filter(p=>wishlist.includes(p.id));
+
+    if(!items.length) {
+        showToast("Your wishlist is empty");
+        return;
+    }
+
+    document.getElementById("search").value = "";
+    selectedCategory = "All";
+    document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+    renderProducts();
+
+    showToast("Wishlist: " + items.map(p=>p.name).join(", "));
+}
+
+// CART FUNCTIONS
+
+function addToCart(id) {
+    const item = cart.find(p=>p.id===id);
+
+    if(item) item.qty++;
+    else cart.push({id,qty:1});
+
+    saveData();
+    updateCart();
+    showToast("Product added to your bag!");
+}
+
+function changeQty(id,change) {
+    const item = cart.find(p=>p.id===id);
+    if(!item) return;
+
+    item.qty += change;
+
+    if(item.qty <= 0) {
+        cart = cart.filter(p=>p.id!==id);
+    }
+
+    saveData();
+    updateCart();
+}
+
+function removeItem(id) {
+    cart = cart.filter(p=>p.id!==id);
+    saveData();
+    updateCart();
+    showToast("Product removed");
+}
+
+function updateCounts() {
+    document.getElementById("cartCount").textContent =
+        cart.reduce((sum,p)=>sum+p.qty,0);
+
+    document.getElementById("wishCount").textContent = wishlist.length;
+}
+
+function updateCart() {
+    const container = document.getElementById("cartItems");
+    let total = 0;
+
+    if(!cart.length) {
+        container.innerHTML = '<div class="empty-cart"><h3>Your bag is empty</h3><p>Discover something beautiful!</p></div>';
+    } else {
+        container.innerHTML = cart.map(item=>{
+            const p = products.find(x=>x.id===item.id);
+            if(!p) return "";
+            total += p.price*item.qty;
+
+            return `
+                <div class="cart-item">
+                    <img src="${p.image}" alt="${p.name}">
+                    <div class="cart-item-info">
+                        <h4>${p.name}</h4>
+                        <p>${money(p.price)}</p>
+                        <div class="quantity">
+                            <button onclick="changeQty(${p.id},-1)">−</button>
+                            <span>${item.qty}</span>
+                            <button onclick="changeQty(${p.id},1)">+</button>
+                            <button class="remove-btn" onclick="removeItem(${p.id})">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join("");
+    }
+
+    document.getElementById("cartTotal").textContent = money(total);
+    updateCounts();
+}
+
+function openCart() {
+    document.getElementById("cartPanel").classList.add("show");
+    document.getElementById("overlay").classList.add("show");
+}
+
+function closeCart() {
+    document.getElementById("cartPanel").classList.remove("show");
+    document.getElementById("overlay").classList.remove("show");
+}
+
+// QUICK VIEW
+
+function quickView(id) {
+    const p = products.find(x=>x.id===id);
+
+    document.getElementById("quickImage").src = p.image;
+    document.getElementById("quickName").textContent = p.name;
+    document.getElementById("quickCategory").textContent = p.category;
+    document.getElementById("quickPrice").textContent = money(p.price);
+
+    document.getElementById("quickAdd").onclick = () => {
+        addToCart(id);
+        closeQuick();
+    };
+
+    document.getElementById("quickModal").classList.add("show");
+}
+
+function closeQuick(event) {
+    if(!event || event.target.id==="quickModal") {
+        document.getElementById("quickModal").classList.remove("show");
+    }
+}
+
+// CHECKOUT DEMO
+
+function checkout() {
+    if(!cart.length) {
+        showToast("Your shopping bag is empty!");
+        return;
+    }
+
+    alert("Thank you for shopping with VELLORA!\\n\\nThis is a demo checkout. Connect a backend and payment gateway to accept real orders.");
+}
+
+// NEWSLETTER
+
+document.getElementById("newsletterForm").addEventListener("submit",function(e) {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    showToast("Thank you for subscribing!");
+    this.reset();
+});
+
+// MOBILE NAVIGATION
+
+function toggleMenu() {
+    document.getElementById("navigation").classList.toggle("show");
+}
+
+// TOAST MESSAGE
+
+let toastTimer;
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>toast.classList.remove("show"),2600);
+}
+
+// INITIALIZE
+
+renderProducts();
+updateCart();
+
+</script>
+
+</body>
+</html>

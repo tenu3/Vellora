@@ -1,0 +1,829 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | VELLORA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --dark: #251d20;
+    --rose: #a65d68;
+    --light-rose: #f7edef;
+    --cream: #faf7f3;
+    --muted: #81777a;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--dark);
+    background: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ANNOUNCEMENT */
+
+.announcement {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+/* NAVBAR */
+
+header {
+    height: 80px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #eee5e4;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.logo span {
+    color: var(--rose);
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    font-size: 12px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--rose);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* PAGE BANNER */
+
+.page-banner {
+    background: linear-gradient(
+        rgba(37,29,32,.45),
+        rgba(37,29,32,.45)
+    ),
+    url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600')
+    center/cover;
+
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 30px;
+}
+
+.page-banner small {
+    letter-spacing: 4px;
+    font-size: 12px;
+    color: #f4dce0;
+}
+
+.page-banner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 65px);
+    margin: 15px 0;
+}
+
+.page-banner p {
+    font-size: 14px;
+    color: #f4eeee;
+}
+
+/* COMMON SECTION */
+
+.section {
+    padding: 85px 7%;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.heading small {
+    color: var(--rose);
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin: 12px 0;
+}
+
+.heading p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* OUR STORY */
+
+.story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.story-image {
+    overflow: hidden;
+}
+
+.story-image img {
+    width: 100%;
+    height: 470px;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.story-image img:hover {
+    transform: scale(1.04);
+}
+
+.story-content small {
+    color: var(--rose);
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.story-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    line-height: 1.2;
+    margin: 17px 0;
+}
+
+.story-content p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--rose);
+    color: white;
+    padding: 15px 27px;
+    margin-top: 15px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    border: none;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #82434d;
+    transform: translateY(-3px);
+}
+
+/* MISSION AND VISION */
+
+.mission {
+    background: var(--cream);
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.mission-card {
+    background: white;
+    padding: 40px;
+    text-align: center;
+    border-bottom: 3px solid var(--rose);
+    transition: .3s;
+}
+
+.mission-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px #00000010;
+}
+
+.mission-card .symbol {
+    font-size: 35px;
+    color: var(--rose);
+    margin-bottom: 15px;
+}
+
+.mission-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.mission-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* VALUES */
+
+.values {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 25px;
+}
+
+.value-card {
+    padding: 30px 18px;
+    text-align: center;
+    transition: .3s;
+}
+
+.value-card:hover {
+    transform: translateY(-7px);
+}
+
+.value-card .symbol {
+    font-size: 32px;
+    color: var(--rose);
+    margin-bottom: 15px;
+}
+
+.value-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.value-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* PROMOTION */
+
+.promo {
+    padding: 85px 8%;
+    text-align: center;
+    color: white;
+    background:
+    linear-gradient(rgba(37,29,32,.75),rgba(37,29,32,.75)),
+    url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1600')
+    center/cover;
+}
+
+.promo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+}
+
+.promo p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 55px 7% 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+    gap: 35px;
+}
+
+footer h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 18px;
+}
+
+footer p,
+footer a {
+    display: block;
+    color: #c7babe;
+    font-size: 12px;
+    line-height: 1.9;
+    margin-bottom: 10px;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.copyright {
+    border-top: 1px solid #51464a;
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+/* ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 950px) {
+    .values {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    nav {
+        gap: 15px;
+    }
+}
+
+@media(max-width: 700px) {
+
+    header {
+        height: 70px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 25px;
+        box-shadow: 0 10px 15px #00000010;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    .page-banner {
+        min-height: 300px;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+
+    .story {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .story-image img {
+        height: 320px;
+    }
+
+    .story-content h2 {
+        font-size: 32px;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .promo h2 {
+        font-size: 32px;
+    }
+}
+
+@media(max-width: 400px) {
+    .values {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ANNOUNCEMENT -->
+
+<div class="announcement">
+    ✦ FREE SHIPPING ON ORDERS ABOVE ₹1,999 | NEW COLLECTION OUT NOW ✦
+</div>
+
+<!-- NAVIGATION -->
+
+<header>
+
+    <a href="index.html" class="logo">
+        VEL<span>L</span>ORA.
+    </a>
+
+    <nav id="navigation">
+        <a href="index.html">HOME</a>
+        <a href="categories.html">CATEGORIES</a>
+        <a href="shop.html">SHOP</a>
+        <a href="about.html" class="active">ABOUT</a>
+        <a href="contacts.html">CONTACT</a>
+    </nav>
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+        ☰
+    </button>
+
+</header>
+
+<!-- PAGE BANNER -->
+
+<section class="page-banner">
+
+    <small>DISCOVER OUR STORY</small>
+
+    <h1>About Vellora</h1>
+
+    <p>Fashion is more than what you wear. It is who you are.</p>
+
+</section>
+
+<!-- OUR STORY -->
+
+<section class="section">
+
+    <div class="story">
+
+        <div class="story-image reveal">
+
+            <img
+            src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1000"
+            alt="Vellora fashion collection">
+
+        </div>
+
+        <div class="story-content reveal">
+
+            <small>WELCOME TO VELLORA</small>
+
+            <h2>Style is a way to say who you are.</h2>
+
+            <p>
+                Welcome to Vellora, where fashion meets elegance.
+                We believe that every individual deserves to feel
+                confident, beautiful and comfortable in their own style.
+            </p>
+
+            <p>
+                Our collection brings together timeless essentials,
+                modern trends and beautiful designs. From everyday
+                outfits to special occasions, we make fashion
+                accessible and enjoyable.
+            </p>
+
+            <p>
+                At Vellora, we don't just offer clothes.
+                We celebrate individuality, creativity and confidence.
+            </p>
+
+            <a href="shop.html" class="btn">
+                EXPLORE OUR COLLECTION →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MISSION AND VISION -->
+
+<section class="section mission">
+
+    <div class="heading reveal">
+
+        <small>WHAT DRIVES US</small>
+
+        <h2>Our Mission & Vision</h2>
+
+        <p>Our purpose is to make every fashion experience special.</p>
+
+    </div>
+
+    <div class="mission-grid">
+
+        <div class="mission-card reveal">
+
+            <div class="symbol">✦</div>
+
+            <h3>Our Mission</h3>
+
+            <p>
+                To provide stylish, beautiful and quality fashion
+                collections that help everyone express their
+                individuality and feel confident every day.
+            </p>
+
+        </div>
+
+        <div class="mission-card reveal">
+
+            <div class="symbol">♡</div>
+
+            <h3>Our Vision</h3>
+
+            <p>
+                To become a trusted fashion destination that inspires
+                people to discover their personal style and enjoy
+                a wonderful shopping experience.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- OUR VALUES -->
+
+<section class="section">
+
+    <div class="heading reveal">
+
+        <small>THE VELLORA PROMISE</small>
+
+        <h2>What Makes Us Special?</h2>
+
+        <p>Our values define everything we do.</p>
+
+    </div>
+
+    <div class="values">
+
+        <div class="value-card reveal">
+
+            <div class="symbol">✧</div>
+
+            <h3>Premium Quality</h3>
+
+            <p>
+                Carefully selected fashion styles
+                with quality and comfort in mind.
+            </p>
+
+        </div>
+
+        <div class="value-card reveal">
+
+            <div class="symbol">♡</div>
+
+            <h3>Unique Style</h3>
+
+            <p>
+                Collections that help you express
+                your personality and individuality.
+            </p>
+
+        </div>
+
+        <div class="value-card reveal">
+
+            <div class="symbol">◇</div>
+
+            <h3>Easy Shopping</h3>
+
+            <p>
+                A simple and enjoyable shopping
+                experience for everyone.
+            </p>
+
+        </div>
+
+        <div class="value-card reveal">
+
+            <div class="symbol">✦</div>
+
+            <h3>Customer Care</h3>
+
+            <p>
+                We value our customers and aim
+                to make every experience special.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROMOTION -->
+
+<section class="promo">
+
+    <h2>Discover Your Style. Celebrate Yourself.</h2>
+
+    <p>
+        Explore our latest collection and find something
+        that makes you feel beautiful.
+    </p>
+
+    <a href="shop.html" class="btn">
+        SHOP NOW →
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+
+            <div class="logo">
+                VEL<span>L</span>ORA.
+            </div>
+
+            <p>
+                Discover your style. Celebrate your individuality.
+                Welcome to Vellora, where fashion meets elegance.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Explore</h3>
+
+            <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About Us</a>
+
+        </div>
+
+        <div>
+
+            <h3>Customer Care</h3>
+
+            <a href="contacts.html">Contact Us</a>
+            <a href="contacts.html">Shipping Policy</a>
+            <a href="contacts.html">Returns</a>
+            <a href="contacts.html">Privacy Policy</a>
+
+        </div>
+
+        <div>
+
+            <h3>Get In Touch</h3>
+
+            <p>Email: hello@vellora.com</p>
+            <p>Instagram: @vellora</p>
+            <p>Follow us for new arrivals.</p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        <p>© 2026 VELLORA. All Rights Reserved.</p>
+
+    </div>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// MOBILE NAVIGATION
+
+function toggleMenu() {
+
+    document
+    .getElementById("navigation")
+    .classList.toggle("show");
+
+}
+
+
+// SCROLL ANIMATION
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+document.querySelectorAll(".reveal").forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+// CLOSE MENU AFTER CLICKING A LINK
+
+document.querySelectorAll("#navigation a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document
+        .getElementById("navigation")
+        .classList.remove("show");
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

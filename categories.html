@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Categories | VELLORA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #fffaf7;
+    color: #382b2b;
+}
+
+/* ANNOUNCEMENT */
+.announcement {
+    background: #a85d69;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: white;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #a85d69;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #382b2b;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #a85d69;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+    background:
+    linear-gradient(rgba(45,28,31,0.48), rgba(45,28,31,0.48)),
+    url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85');
+
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+/* CATEGORY SECTION */
+.categories-section {
+    padding: 80px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading span {
+    color: #a85d69;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    margin: 12px 0;
+}
+
+.section-heading p {
+    color: #806f6f;
+    font-size: 14px;
+}
+
+/* FILTER BUTTONS */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 11px 25px;
+    border: 1px solid #d8b9b8;
+    background: transparent;
+    color: #62494b;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #a85d69;
+    color: white;
+    border-color: #a85d69;
+}
+
+/* CATEGORY GRID */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.category-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    transition: 0.4s ease;
+    animation: fadeIn 0.5s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.category-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    transition: 0.5s;
+}
+
+.category-card:hover img {
+    transform: scale(1.06);
+}
+
+.card-content {
+    padding: 22px;
+    text-align: center;
+    position: relative;
+    background: white;
+}
+
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    font-size: 13px;
+    color: #806f6f;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+.shop-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #a85d69;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.shop-btn:hover {
+    background: #81434e;
+    letter-spacing: 1px;
+}
+
+/* PROMOTIONAL BANNER */
+.promo {
+    margin: 20px 8% 80px;
+    padding: 65px 25px;
+    text-align: center;
+    background: #f3e5e1;
+    border-radius: 12px;
+}
+
+.promo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.promo p {
+    color: #806f6f;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.promo a {
+    display: inline-block;
+    padding: 13px 30px;
+    background: #a85d69;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.promo a:hover {
+    background: #81434e;
+}
+
+/* FOOTER */
+footer {
+    background: #382b2b;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+footer h2 {
+    font-family: 'Playfair Display', serif;
+    color: #e9b9bf;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 12px;
+    color: #d8c5c5;
+    line-height: 1.8;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width: 900px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 25px;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .categories-section {
+        padding: 55px 6%;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card img {
+        height: 380px;
+    }
+
+    .promo h2 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announcement">
+    FREE SHIPPING ON ORDERS ABOVE ₹1999
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">VELLORA</div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+        ☰
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="categories.html" class="active">Categories</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Our Collections</h1>
+    <p>Discover your style. Explore our beautiful collections.</p>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section">
+
+    <div class="section-heading">
+        <span>EXPLORE VELLORA</span>
+        <h2>Shop By Category</h2>
+        <p>Find the perfect outfit for every occasion and every mood.</p>
+    </div>
+
+    <!-- FILTER BUTTONS -->
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="western">Western Wear</button>
+        <button class="filter-btn" data-filter="traditional">Traditional</button>
+        <button class="filter-btn" data-filter="casual">Casual Wear</button>
+    </div>
+
+    <!-- CATEGORY CARDS -->
+    <div class="category-grid" id="categoryGrid">
+
+        <div class="category-card" data-category="western">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=85" alt="Dresses">
+            <div class="card-content">
+                <h3>Elegant Dresses</h3>
+                <p>Beautiful dresses for parties, events and special occasions.</p>
+                <a href="shop.html" class="shop-btn">Explore Collection →</a>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="western">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85" alt="Western fashion">
+            <div class="card-content">
+                <h3>Western Wear</h3>
+                <p>Modern styles that bring confidence and elegance to your look.</p>
+                <a href="shop.html" class="shop-btn">Explore Collection →</a>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="traditional">
+            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85" alt="Traditional clothing">
+            <div class="card-content">
+                <h3>Traditional Wear</h3>
+                <p>Celebrate culture and beauty with timeless traditional outfits.</p>
+                <a href="shop.html" class="shop-btn">Explore Collection →</a>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="casual">
+            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=800&q=85" alt="Casual wear">
+            <div class="card-content">
+                <h3>Casual Wear</h3>
+                <p>Comfortable and stylish outfits for your everyday moments.</p>
+                <a href="shop.html" class="shop-btn">Explore Collection →</a>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="western">
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=85" alt="Jackets and tops">
+            <div class="card-content">
+                <h3>Tops & Jackets</h3>
+                <p>Upgrade your wardrobe with stylish tops and fashionable layers.</p>
+                <a href="shop.html" class="shop-btn">Explore Collection →</a>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="casual">
+            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=85" alt="Jeans and trousers">
+            <div class="card-content">
+                <h3>Jeans & Trousers</h3>
+                <p>Find your perfect fit with versatile everyday essentials.</p>
+                <a href="shop.html" class="shop-btn">Explore Collection →</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROMOTIONAL BANNER -->
+<section class="promo">
+    <h2>Style That Speaks For You</h2>
+    <p>Explore the latest trends and find something special at VELLORA.</p>
+    <a href="shop.html">Shop All Products →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>VELLORA</h2>
+    <p>Elegance in every thread. Style in every moment.</p>
+    <p>© 2026 VELLORA. All Rights Reserved.</p>
+</footer>
+
+<script>
+// MOBILE NAVIGATION
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function() {
+    navLinks.classList.toggle("show");
+});
+
+// CLOSE MOBILE MENU AFTER CLICK
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", function() {
+        navLinks.classList.remove("show");
+    });
+});
+
+// CATEGORY FILTER
+const filterButtons = document.querySelectorAll(".filter-btn");
+const categoryCards = document.querySelectorAll(".category-card");
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+
+        // Add active class to selected button
+        this.classList.add("active");
+
+        const filterValue = this.getAttribute("data-filter");
+
+        categoryCards.forEach(card => {
+
+            const category = card.getAttribute("data-category");
+
+            if (filterValue === "all" || category === filterValue) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+
+});
+</script>
+
+</body>
+</html>
